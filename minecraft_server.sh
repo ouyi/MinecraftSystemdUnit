@@ -11,4 +11,4 @@ ram_size_mb=$(free -m | grep -F 'Mem:' | awk '{print $2}')
 heap_size_min=$( printf "%0.0f%s" $(echo "$ram_size_mb * 0.7" | bc -l ) 'M' )
 heap_size_max=$( printf "%0.0f%s" $(echo "$ram_size_mb * 0.9" | bc -l ) 'M' )
 
-echo cd "$server_folder" && echo java -server -Xms"$heap_size_min" -Xmx"$heap_size_max" -jar "$jar_file" nogui
+cd "$server_folder" && java -server -Xms"$heap_size_min" -Xmx"$heap_size_max" -jar "$jar_file" nogui
